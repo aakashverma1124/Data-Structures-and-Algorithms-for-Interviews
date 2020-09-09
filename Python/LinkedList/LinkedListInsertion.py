@@ -31,16 +31,9 @@ class LinkedListInsertion:
 
 	# Inserting at the beginning of a Linked List
 	def insertAtBeginning(self, key): 
-
-		h = self.head
-
-		if h is None:
-			new_node = Node(key)
-			self.head = new_node
-		else:
-			new_node = Node(key)  
-			new_node.next = self.head 
-			self.head = new_node 
+		new_node = Node(key)  
+		new_node.next = self.head 
+		self.head = new_node 
 
 	# Inserting after a specific node assuming the data is given of the node after which
 	# insertion has to be done.
@@ -93,14 +86,14 @@ if __name__=='__main__':
 
 	myList = LinkedListInsertion() 
 
-	# myList.insertionAtEnd(1)
-	# print("Initial Linked List: ", end = " ")
-	# myList.printList() 
+	myList.insertionAtEnd(1)
+	print("Initial Linked List: ", end = " ")
+	myList.printList() 
 
 
-	# myList.insertionAtEnd(6) 
-	# print("After inserting at the end of Linked List: ", end = " ")
-	# myList.printList()
+	myList.insertionAtEnd(6) 
+	print("After inserting at the end of Linked List: ", end = " ")
+	myList.printList()
 
 	myList.insertAtBeginning(7); 
 	print("After inserting at the beginning of Linked List: ", end = " ")
@@ -114,6 +107,6 @@ if __name__=='__main__':
 	print("After inserting at the beginning of Linked List: ", end = " ")
 	myList.printList()
 	
-	# myList.insertAfter(7, 8) 
-	# print("After inserting after node 7 in Linked List: ", end = " ")
-	# myList.printList()
+	myList.insertAfter(7, 8) 
+	print("After inserting after node 7 in Linked List: ", end = " ")
+	myList.printList()

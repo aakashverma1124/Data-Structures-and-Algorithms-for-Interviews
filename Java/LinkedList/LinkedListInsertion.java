@@ -47,17 +47,11 @@ class LinkedListInsertion {
 
 	/* Inserting at the beginning of a Linked List. */
 	void insertAtBeginning(int key) {
-		Node h = head;
-		if(h == null) {
-			Node temp = new Node(key);
-			temp.next = null;
-			head = temp;
-		}
-		else {
-			Node temp = new Node(key);
-			temp.next = h;
-			head = temp;
-		}
+		
+		Node temp = new Node(key);
+		temp.next = head;
+		head = temp;
+		
 	}
 
 	/* Inserting at the end of a Linked List. */
@@ -82,7 +76,7 @@ class LinkedListInsertion {
 	void insertAfterNode (int key, int nodeAfter) {
 		Node h = head;
 		if(h == null) {
-			System.out.println("The node can't be inserted in this case as node " + nodeAfter + " doesn't exists.");
+			System.out.println("The node can't be inserted in this case as node " + nodeAfter + " doesn't exist.");
 		}
 		else { 
 			while(h.data != nodeAfter) {
