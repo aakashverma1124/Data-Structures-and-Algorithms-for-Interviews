@@ -81,12 +81,13 @@ class LinkedListInsertion {
 		else { 
 			while(h.data != nodeAfter) {
 				h = h.next;
+				if(h==null) {
+					System.out.println("Node doesn't exist.");
+					return;
+				}	
 			}
 
-			if(h==null) {
-				System.out.println("Node doesn't exist.");
-				return;
-			}
+			
 
 			Node temp = new Node(key);
 			temp.next = h.next;
@@ -113,7 +114,7 @@ class LinkedListInsertion {
 		System.out.print("After Inserting at the End, list is: ");
 		list.printList();
 		System.out.println();
-		list.insertAfterNode(2, 3);
+		list.insertAfterNode(3, 10);
 		System.out.print("After Inserting after given node, list is: ");
 		list.printList();
 		System.out.println();
