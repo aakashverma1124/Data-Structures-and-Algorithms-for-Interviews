@@ -73,7 +73,6 @@ class LinkedListNthFromEnd {
 			System.out.println("The list doesn't exist");
 			return;
 		}
-
 		/* curr pointer is being moved ahead n times. */
 		for(int i = 0; i < nthNode; i++) {
 			if(curr != null) {
@@ -84,15 +83,13 @@ class LinkedListNthFromEnd {
 				return;
 			}
 		}
-
-		// Now the difference between prev and curr pointer is n
-
-		/* now we'll move prev and curr pointer both until curr becomes null and finally prev will be at n from last */
+		/* 	Now the difference between prev and curr pointer is n
+		 	now we'll move prev and curr pointer both until curr becomes null 
+		 	and finally prev will be at n from last */
 		while(curr != null) {
 			prev = prev.next;
 			curr = curr.next;
 		}
-
 		/* finally printing data of nth node from last */
 		System.out.println(prev.data);
 

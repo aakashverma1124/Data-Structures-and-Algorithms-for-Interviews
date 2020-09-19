@@ -6,15 +6,8 @@
 * 	Start of the Loop
 *
 *	Output: 
-*
-*	The list is: 3 4 5 6 7 
-*	Middle Of List is: 5
-*	The list is: 3 4 5 6 7 8 
-*	Middle Of List is: 6
-*
-* 	Note: In case of even number of nodes, we are printing the ((n/2)+1)th node. 
-*	If you want to print (n/2)th node you can customize your code as per your requirement.	
-*
+*	5
+* 	
 *
 */
 
@@ -62,8 +55,7 @@ class StartingOfLoop {
 	void startingOfLoop() {
 		Node fast, slow;
 		fast = slow = head;
-		int temp = 0;
-		// boolean isLoopFound = false;
+		boolean isLoopFound = false;
 		if(head == null) {
 			System.out.println("The list doesn't exists.");
 			return;
@@ -73,13 +65,12 @@ class StartingOfLoop {
 			slow = slow.next;
 			fast = fast.next.next;
 			if(slow == fast) {
-				temp = 1;
-				// isLoopFound = true;
+				isLoopFound = true;
 				break;
 			}
 		}
 
-		if(temp == 1) {
+		if(isLoopFound) {
 			slow = head;
 			while(slow != fast) {
 				slow = slow.next;
