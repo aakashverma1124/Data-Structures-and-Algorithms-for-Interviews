@@ -54,7 +54,7 @@ bool isFull() {
 
 
 /* function to push an element in the stack. */
-bool push(int key) {
+int push(int key) {
 /* 
 	if top becomes equal to MAX-1, then it means the array is full and we can't insert any element.
 	isFull() will return true, if stack is full.
