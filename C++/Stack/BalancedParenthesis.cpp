@@ -73,9 +73,10 @@ bool isBalanced(string expression) {
 				category of top element of stack, if it so we pop the element.
 				Otherwise, we directly return false.
 			*/
-			else if(!isMatching(s.pop(), expression[i])){
+			else if(!isMatching(s.top(), expression[i])){
 					return false;
 			}
+			s.pop();
 		}
 	}
 	/* 
