@@ -33,7 +33,7 @@ struct Node* root = NULL;
 
 /* if root doesn't point to anything, then stack is obviously empty and it will return true. */
 bool isEmpty() {
-	if(root == null) {
+	if(root == NULL) {
 		return 1;
 	}
 	return 0;
