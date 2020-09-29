@@ -9,7 +9,6 @@
 
 
 def nextGreaterElementToRight(arr, n):
-	l = []
 	s = []
 	s.append(arr[0])
 
@@ -24,20 +23,17 @@ def nextGreaterElementToRight(arr, n):
 		# 		b) keep popping while elements are 
 		# 		smaller and stack is not empty 
 		while len(s) != 0 and s[-1] < arr[i]:
-			l.append(arr[i])
+			print("%d -> %d" % (s[-1], arr[i]))
 			s.pop()
 
 		s.append(arr[i])
 
 
 	while len(s) != 0:
-		l.append(-1)
+		print("%d -> %d" % (s[-1], -1))
 		s.pop()
 		
-	return l
-
 if __name__ == '__main__':
 	arr = [4, 5, 2, 25]
 	n = len(arr)
-	l = nextGreaterElementToRight(arr, n)
-	print(l)
+	nextGreaterElementToRight(arr, n)

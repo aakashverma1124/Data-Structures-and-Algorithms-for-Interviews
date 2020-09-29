@@ -11,9 +11,8 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-vector<int> nextGreaterElementToRight(int arr[], int n) { 
+void nextGreaterElementToRight(int arr[], int n) { 
 	
-	vector<int> v;
 	stack <int> s; 
 
 	s.push(arr[0]); 
@@ -32,7 +31,7 @@ vector<int> nextGreaterElementToRight(int arr[], int n) {
 			smaller and stack is not empty 
 		*/
 		while (s.empty() == false && s.top() < arr[i]) {		 
-			v.push_back(arr[i]);
+			cout << s.top << "-->" << arr[i] << endl;
 			s.pop(); 
 		} 
 
@@ -42,20 +41,16 @@ vector<int> nextGreaterElementToRight(int arr[], int n) {
 	} 
 
 	while (s.empty() == false) { 
-		v.push_back(-1);
+		cout << s.top << "-->" << -1 << endl;
 		s.pop(); 
 	} 
-	return v;
 } 
 
 int main() { 
 
 	int arr[] = {4, 5, 2, 25}; 
 	int n = sizeof(arr) / sizeof(arr[0]); 
-	vector<int> v = nextGreaterElementToRight(arr, n); 
-	for(int i: v) {
-	    cout << i << endl;
-	}
+	nextGreaterElementToRight(arr, n); 
 	return 0; 
 
 }

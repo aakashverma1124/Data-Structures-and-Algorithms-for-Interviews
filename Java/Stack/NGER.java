@@ -12,9 +12,8 @@ import java.util.*;
 
 class NGER {
 
-	public ArrayList<Integer> nextGreaterElementToRight(int arr[], int n) { 
+	public void nextGreaterElementToRight(int arr[], int n) { 
 	
-		ArrayList<Integer> l = new ArrayList<>(); 
 		Stack<Integer> s = new Stack<>();
 		
 		s.push(arr[0]); 
@@ -34,7 +33,7 @@ class NGER {
 				smaller and stack is not empty 
 			*/
 			while (s.empty() == false && s.peek() < arr[i]) {		 
-				l.add(arr[i]);
+				System.out.println(s.peek() + " -> " + arr[i]);
 				s.pop(); 
 			} 
 
@@ -44,18 +43,16 @@ class NGER {
 		} 
 
 		while (s.empty() == false) { 
-			l.add(-1);
+			System.out.println(s.peek() + " -> " + "-1");
 			s.pop(); 
 		} 
-		return l;
 	} 
 
 	public static void main(String[] args) {
 		NGER nger = new NGER();
 		int arr[] = {4, 5, 2, 25};
 		int n = arr.length;
-		ArrayList<Integer> list = nger.nextGreaterElementToRight(arr, n); 
-		System.out.println(list.toString());
+		nger.nextGreaterElementToRight(arr, n); 
 	}
 
 }
