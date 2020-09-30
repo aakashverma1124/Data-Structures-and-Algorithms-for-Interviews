@@ -11,17 +11,14 @@
 def nextGreaterElementToLeft(arr, n):
 	s = []
 	v = []
-	s.append(arr[0])
-	v.append(-1)
 
-	for i in range(1, n):
+	for i in range(0, n):
 
 		if(len(s) == 0):
 			v.append(-1)
 
 		elif(s[-1] > arr[i]):
 			v.append(s[-1])
-			s.append(arr[i])
 
 		else:
 
@@ -33,7 +30,8 @@ def nextGreaterElementToLeft(arr, n):
 
 			else:
 				v.append(s[-1])
-			s.append(arr[i])
+
+		s.append(arr[i])
 
 	return v
 

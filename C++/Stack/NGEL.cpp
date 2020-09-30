@@ -15,17 +15,13 @@ vector<int> nextGreaterElementToLeft(int arr[], int n) {
 	stack<int> s;
 	vector<int> v;
 
-	s.push(arr[0]);
-	v.push_back(-1);
-
-	for(int i = 1; i < n; i++) {
+	for(int i = 0; i < n; i++) {
 
 		if(s.size() == 0) {
 			v.push_back(-1);
 		}
 		else if(s.top() > arr[i]) {
 		    v.push_back(s.top());
-		    s.push(arr[i]);
 		}
 		else {
 		    while(!s.empty() && s.top() < arr[i]) {
@@ -37,8 +33,8 @@ vector<int> nextGreaterElementToLeft(int arr[], int n) {
     		else  {
     		    v.push_back(s.top());
     		}
-    		s.push(arr[i]);
 		}
+		s.push(arr[i]);
 	}
 	return v;
 }
