@@ -4,21 +4,21 @@
 
 	Problem: Given an array, find an array of the Next Greater Elements (NGE) for every element.
 			 The Next Greater Element for an element x is the first greater element 
-			 on the right side of x in array. Elements for which no greater element exist, 
+			 on the left side of x in array. Elements for which no greater element exist, 
 			 consider next greater element as -1.
 */
 
 #include <bits/stdc++.h> 
 using namespace std; 
 
-vector<int> nextGreaterElementToRight(int arr[], int n) {
+vector<int> nextGreaterElementToLeft(int arr[], int n) {
 	stack<int> s;
 	vector<int> v;
 
-	s.push(arr[n-1]);
+	s.push(arr[0]);
 	v.push_back(-1);
 
-	for(int i = n - 2; i >= 0; i--) {
+	for(int i = 1; i < n; i++) {
 
 		if(s.size() == 0) {
 			v.push_back(-1);
@@ -40,15 +40,14 @@ vector<int> nextGreaterElementToRight(int arr[], int n) {
     		s.push(arr[i]);
 		}
 	}
-	reverse(v.begin(), v.end());
 	return v;
 }
 
 int main(int argc, char const *argv[]) {
 	
-	int arr[] = {7, 8, 1, 4}; 
+	int arr[] = {4, 5, 2, 25}; 
 	int n = sizeof(arr) / sizeof(arr[0]); 
-	vector<int> ans = nextGreaterElementToRight(arr, n); 
+	vector<int> ans = nextGreaterElementToLeft(arr, n); 
 	for (int a: ans) {
 		cout << a << " ";
 	}
