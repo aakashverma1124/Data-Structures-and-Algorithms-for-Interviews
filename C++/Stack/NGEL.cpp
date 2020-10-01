@@ -16,23 +16,14 @@ vector<int> nextGreaterElementToLeft(int arr[], int n) {
 	vector<int> v;
 
 	for(int i = 0; i < n; i++) {
-
-		if(s.size() == 0) {
-			v.push_back(-1);
+	    while(!s.empty() && s.top() < arr[i]) {
+			s.pop();
 		}
-		else if(s.top() > arr[i]) {
+		if(s.empty()) {
+		    v.push_back(-1);
+		}
+		else  {
 		    v.push_back(s.top());
-		}
-		else {
-		    while(!s.empty() && s.top() < arr[i]) {
-    			s.pop();
-    		}
-    		if(s.empty()) {
-    		    v.push_back(-1);
-    		}
-    		else  {
-    		    v.push_back(s.top());
-    		}
 		}
 		s.push(arr[i]);
 	}
