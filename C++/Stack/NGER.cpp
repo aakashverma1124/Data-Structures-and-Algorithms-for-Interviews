@@ -15,30 +15,17 @@ vector<int> nextGreaterElementToRight(int arr[], int n) {
 	stack<int> s;
 	vector<int> v;
 
-	s.push(arr[n-1]);
-	v.push_back(-1);
-
-	for(int i = n - 2; i >= 0; i--) {
-
-		if(s.size() == 0) {
-			v.push_back(-1);
+	for(int i = n - 1; i >= 0; i--) {
+	    while(!s.empty() && s.top() < arr[i]) {
+			s.pop();
 		}
-		else if(s.top() > arr[i]) {
+		if(s.empty()) {
+		    v.push_back(-1);
+		}
+		else  {
 		    v.push_back(s.top());
-		    s.push(arr[i]);
 		}
-		else {
-		    while(!s.empty() && s.top() < arr[i]) {
-    			s.pop();
-    		}
-    		if(s.empty()) {
-    		    v.push_back(-1);
-    		}
-    		else  {
-    		    v.push_back(s.top());
-    		}
-    		s.push(arr[i]);
-		}
+		s.push(arr[i]);
 	}
 	reverse(v.begin(), v.end());
 	return v;
