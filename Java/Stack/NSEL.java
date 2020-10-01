@@ -17,7 +17,7 @@ class NGEL {
 		Stack<Integer> s = new Stack<>();
 
 		for(int i = 0; i < n; i++) {
-		    while(!s.empty() && s.peek() >= arr[i]) {
+		    while(!s.empty() && s.peek() > arr[i]) {
     			s.pop();
     		}
     		if(s.empty()) {
