@@ -16,7 +16,7 @@ vector<int> nextGreaterElementToLeft(int arr[], int n) {
 	vector<int> v;
 
 	for(int i = 0; i < n; i++) {
-	    while(!s.empty() && s.top() < arr[i]) {
+	    while(!s.empty() && s.top() <= arr[i]) {
 			s.pop();
 		}
 		if(s.empty()) {
