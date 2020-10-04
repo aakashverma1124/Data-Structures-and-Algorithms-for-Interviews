@@ -13,7 +13,7 @@ def nextGreaterElementToRight(arr, n):
 	v = []
 
 	for i in range(n-1, -1, -1):
-		while(len(s) != 0 and s[-1] < arr[i]):
+		while(len(s) != 0 and s[-1] <= arr[i]):
 			s.pop()
 
 		if len(s) == 0 :
