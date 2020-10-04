@@ -17,7 +17,7 @@ class NSER {
 		Stack<Integer> s = new Stack<>();
 
 		for(int i = n - 1; i >= 0; i--) {
-		    while(!s.empty() && s.peek() > arr[i]) {
+		    while(!s.empty() && s.peek() >= arr[i]) {
     			s.pop();
     		}
     		if(s.empty()) {
