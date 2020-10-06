@@ -29,14 +29,14 @@ class Node {
 }
 
 /* Defining class for the Binary Tree */
-class NumberOfNonLeadNodes {
+class NumberOfNonLeafNodes {
 
     /* Creating a root node for the Tree. */
     static Node root;
     
 
     /* Assigning root as null initially. */
-    NumberOfNonLeadNodes() {
+    NumberOfNonLeafNodes() {
         root = null;
     }
 
@@ -61,7 +61,7 @@ class NumberOfNonLeadNodes {
     
     /* main method */
     public static void main (String[] args) {
-        NumberOfNonLeadNodes tree = new NumberOfNonLeadNodes();
+        NumberOfNonLeafNodes tree = new NumberOfNonLeafNodes();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
         tree.root.right = new Node(3);
