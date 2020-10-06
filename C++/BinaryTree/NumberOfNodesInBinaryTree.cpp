@@ -50,9 +50,7 @@ int numNodes(struct Node *root) {
     if(root == NULL) {
         return 0;
     }
-    else {
-        return 1 + numNodes(root->left) + numNodes(root->right);
-    }
+    return 1 + numNodes(root->left) + numNodes(root->right);
 }
     
 /* main method */
