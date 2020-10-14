@@ -4,18 +4,18 @@ using namespace std;
 int largest_area_histogram(int arr[],int n)
 {
     int max_area = 0;
-    int rb[n]; // nse on the right
-    int lb[n]; // nse on the left
+    int right_boundary[n]; // nse on the right
+    int left_boundary[n]; // nse on the left
     stack<int> st;
 
     //for nser
     st.push(n - 1);
-    rb[n - 1] = n;
+    right_boundary[n - 1] = n;
     for (int i = n - 2; i >= 0; i--) {
       while (st.size() > 0 && arr[i] <= arr[st.top()]) st.pop();
 
-      if (st.size() == 0) rb[i] = n;
-      else rb[i] = st.top();
+      if (st.size() == 0) right_boundary[i] = n;
+      else right_boundary[i] = st.top();
      
       st.push(i);
     }
@@ -24,19 +24,19 @@ int largest_area_histogram(int arr[],int n)
     
     //for nsel
     st.push(0);
-    lb[0] = -1;
+    left_boundary[0] = -1;
     for (int i = 1; i < n; i++) {
       while (st.size() > 0 && arr[i] <= arr[st.top()]) st.pop();
       
-      if (st.size() == 0) lb[i] = -1;
-      else lb[i] = st.top();
+      if (st.size() == 0) left_boundary[i] = -1;
+      else left_boundary[i] = st.top();
      
       st.push(i);
     }
 
     //for max area
     for (int i = 0; i < n; i++) {
-      int area = (rb[i] - lb[i] - 1) * arr[i];
+      int area = (right_boundary[i] - left_boundary[i] - 1) * arr[i];
       if (area > max_area) max_area = area;
     }
 
