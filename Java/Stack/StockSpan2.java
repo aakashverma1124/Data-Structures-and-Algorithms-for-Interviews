@@ -23,7 +23,7 @@ class StockSpan {
 		Stack<ArrayList<Integer>> s = new Stack<>();
 
 		for(int i = 0; i < n; i++) {
-		    while(!s.empty() && s.peek().get(0) < arr[i]) {
+		    while(!s.empty() && s.peek().get(0) <= arr[i]) {
     			s.pop();
     		}
     		if(s.empty()) {

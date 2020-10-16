@@ -22,7 +22,7 @@ vector<int> stockSpan(int arr[], int n) {
 	vector<int> span;
 
 	for(int i = 0; i < n; i++) {
-	    while(!s.empty() && s.top().first < arr[i]) {
+	    while(!s.empty() && s.top().first <= arr[i]) {
 			s.pop();
 		}
 		if(s.empty()) {
