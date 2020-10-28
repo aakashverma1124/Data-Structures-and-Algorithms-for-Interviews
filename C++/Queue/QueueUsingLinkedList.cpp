@@ -53,8 +53,7 @@ void enqueue(int item) {
 int dequeue() { 
 	if (front == NULL) 
 		return -1; 
-
- 
+	
 	struct Node* temp = front; 
 	front = front->next; 
 
