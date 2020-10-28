@@ -10,24 +10,13 @@
 
 # I am assuming that you are here after going through the theory of Queue and looking for implementation.
 
-# Output: 	
-# Queue is empty
-# Inserted 1
-# Inserted 2
-# Inserted 3
-# Inserted 4
-# Inserted 5
-# Front points to: 0
-# Items in Queue: 1 2 3 4 5
-# Rear points to: 4
-# Deleted Element is 1
-# Front points to: 1
-# Items in Queue: 2 3 4 5
-# Rear points to: 4
-# Inserted 7
-# Front points to: 1
-# Items in Queue: 2 3 4 5 7
-# Rear points to: 5
+# Output: 
+
+# Enqueue Operation Done, rear is at  11
+# Enqueue Operation Done, rear is at  12
+# Enqueue Operation Done, rear is at  13
+# Deleted Element is:  11
+# Front element is:  12
 
 # Run using: python3 QueueUsingArray.py
 
@@ -64,7 +53,7 @@ class QueueUsingArray:
                 self.front = 0
             self.rear = (self.rear + 1) % self.SIZE
             self.queue.append(element)
-            print("Inserted ", element)
+            print("Enqueue Operation Done, rear is at ", element)
 
     def deQueue(self):
         if (self.isEmpty()):
@@ -82,39 +71,23 @@ class QueueUsingArray:
                 self.front = (self.front + 1) % self.SIZE
             return element
 
-    def display(self):
-        if (self.isEmpty()):
-            print("Empty Queue")
-        else:
-            print("Front points to: ", self.front)
-            print("Items in Queue: ", end=" ")
-            i = self.front
-            while(i != self.rear):
-                print(self.queue[i], end=" ")
-                i = (i + 1) % self.SIZE
-            print(self.queue[i])
-            print("Rear points to: ", self.rear)
+    def peek(self):
+    	if(self.isEmpty()):
+    		print("Queue is empty")
+    		return -1
+    	else :
+    		return self.queue[self.front]
 
 
 if __name__ == '__main__':
 
     q = QueueUsingArray()
-    q.deQueue()
-    q.enQueue(1)
-    q.enQueue(2)
-    q.enQueue(3)
-    q.enQueue(4)
-    q.enQueue(5)
-
-    q.display()
-
-    item = q.deQueue()
-
-    if (item != -1):
-        print("Deleted Element is ", item)
-    q.display()
-    q.enQueue(7)
-    q.display()
+    q.enQueue(11)
+    q.enQueue(12)
+    q.enQueue(13)
+	deleted = q.dequeue()
+	print("Deleted Element is: ", deleted)
+	print("Front element is: ", q.peek())
 
 
 

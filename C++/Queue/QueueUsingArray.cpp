@@ -12,23 +12,12 @@
 	I am assuming that you are here after going through the theory of Queue and looking for implementation.
 
 	Output: 	
-	Queue is empty
-	Inserted 1
-	Inserted 2
-	Inserted 3
-	Inserted 4
-	Inserted 5
-	Front points to: 0
-	Items in Queue: 1 2 3 4 5
-	Rear points to: 4
-	Deleted Element is 1
-	Front points to: 1
-	Items in Queue: 2 3 4 5
-	Rear points to: 4
-	Inserted 7
-	Front points to: 1
-	Items in Queue: 2 3 4 5 7
-	Rear points to: 5
+
+	Enqueue Operation Done, rear is at  11
+	Enqueue Operation Done, rear is at  12
+	Enqueue Operation Done, rear is at  13
+	Deleted Element is:  11
+	Front element is:  12
 
 	Compile using:  g++ filename.cpp
 	Run using: ./a.out filename.cpp 
@@ -71,7 +60,7 @@ void enQueue(int element) {
 	    	front = 0;
 	  	rear = (rear + 1) % SIZE;
 	  	queue[rear] = element;
-	  	cout << "Inserted " << element << endl;
+	  	cout << "Enqueue Operation Done, rear is at " << element << endl;
 	}
 }
 
@@ -95,43 +84,24 @@ int deQueue() {
 	}
 }
 
-void display() {
-
-	/* Function to display status of Circular Queue */
-	int i;
+int peek() {
 	if (isEmpty()) {
-	  	cout << "Empty Queue" << endl;
+	  	cout << "Queue is empty." << endl;
+	  	return -1;
 	} 
 	else {
-	 	cout << "Front points to: " << front << endl;
-		cout << "Items in Queue: ";
-		for (i = front; i != rear; i = (i + 1) % SIZE)
-			cout << queue[i] << " ";
-		cout << queue[i] << endl;
-		cout << "Rear points to: " << rear << endl;
+	 	return queue[front];
 	}
 }
 
 int main(int argc, char const *argv[]) {
-	/* Fails because front = -1 */
-    deQueue();
-
-    enQueue(1);
-    enQueue(2);
-    enQueue(3);
-    enQueue(4);
-    enQueue(5);
-
-    display();
-
-    int item = deQueue();
-
-    if (item != -1) {
-      cout << "Deleted Element is " << item << endl;
-    }
-    display();
-    enQueue(7);
-    display();
+    enQueue(11);
+    enQueue(12);
+    enQueue(13);
+    int deleted = deQueue();
+    cout << "Deleted Element is: " << deleted << endl;
+    cout << "Front Element is: " << peek() << endl;
+    
 	return 0;
 }
 

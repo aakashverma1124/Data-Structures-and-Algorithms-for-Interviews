@@ -12,23 +12,12 @@
 	I am assuming that you are here after going through the theory of Queue and looking for implementation.
 
 	Output: 	
-	Queue is empty
-	Inserted 1
-	Inserted 2
-	Inserted 3
-	Inserted 4
-	Inserted 5
-	Front points to: 0
-	Items in Queue: 1 2 3 4 5
-	Rear points to: 4
-	Deleted Element is 1
-	Front points to: 1
-	Items in Queue: 2 3 4 5
-	Rear points to: 4
-	Inserted 7
-	Front points to: 1
-	Items in Queue: 2 3 4 5 7
-	Rear points to: 5
+
+	Enqueue Operation Done, rear is at  11
+	Enqueue Operation Done, rear is at  12
+	Enqueue Operation Done, rear is at  13
+	Deleted Element is:  11
+	Front element is:  12
 
 
 	Compile using: javac filename.java
@@ -75,7 +64,7 @@ public class QueueUsingArray {
 		    	front = 0;
 		  	rear = (rear + 1) % SIZE;
 		  	queue[rear] = element;
-		  	System.out.println("Inserted " + element);
+		  	System.out.println("Enqueue Operation Done, rear is at " + element);
 		}
 	}
 
@@ -99,46 +88,26 @@ public class QueueUsingArray {
 		}
 	}
 
-	void display() {
-
-		/* Function to display status of Circular Queue */
-		int i;
-		if (isEmpty()) {
-		  	System.out.println("Empty Queue");
-		} 
-		else {
-		 	System.out.println("Front points to: " + front);
-			System.out.print("Items in Queue: ");
-			for (i = front; i != rear; i = (i + 1) % SIZE)
-			System.out.print(queue[i] + " ");
-			System.out.println(queue[i]);
-			System.out.println("Rear points to: " + rear);
-		}
+	int peek() {
+	    if(isEmpty()) {
+	        System.out.println("Queue is empty");
+	        return -1;
+	    }
+	    else {
+	        return queue[front];
+	    }
 	}
 
 	public static void main(String[] args) {
 
 		QueueUsingArray q = new QueueUsingArray();
-
-	    /* Fails because front = -1 */
-	    q.deQueue();
-
-	    q.enQueue(1);
-	    q.enQueue(2);
-	    q.enQueue(3);
-	    q.enQueue(4);
-	    q.enQueue(5);
-
-	    q.display();
-
-	    int item = q.deQueue();
-
-	    if (item != -1) {
-	      System.out.println("Deleted Element is " + item);
-	    }
-	    q.display();
-	    q.enQueue(7);
-	    q.display();
+	    q.enQueue(11);
+	    q.enQueue(12);
+	    q.enQueue(13);
+	    int deleted = q.deQueue();
+	    System.out.println("Deleted Element is: " + deleted);
+	    System.out.println("Front Element is: " + q.peek());
+	    
 	}
 
 }
