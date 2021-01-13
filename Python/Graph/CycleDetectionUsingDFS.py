@@ -20,7 +20,7 @@ def gridToAdjacencyList(edges):
         d[edge[1]].append(edge[0])
     return d
 
-# there will be a condition when node's neighbour will be visited and it will seem that there is a cycle 
+# there will be a condition when node's neighbour will be visited and it might seem that there is a cycle 
 # but this is not the case because the node, which has already been visited, might be it's parent. So, 
 # we will have a condition that node's neighbour is visited then is should not be it's parent, only then 
 # we can declare that the graph has a cycle.
