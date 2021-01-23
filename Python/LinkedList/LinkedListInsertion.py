@@ -24,10 +24,26 @@ class Node:
 
 # Creating a class for implementing the code for Insertion in a Linked List
 class LinkedListInsertion: 
-	
+
 	# Whenever I'll create the object of a LinkedList class head will be pointing to null initially
 	def __init__(self): 
 		self.head = None
+
+	def returnLastNode(self, n):
+		temp = self.head
+		c = 0
+		iterations = 0
+		while temp is not None:
+			temp = temp.next
+			iterations += 1
+			c += 1
+
+		p = self.head
+		for i in range(c - n):
+			iterations += 1
+			p = p.next
+		print("Iterations: ", iterations)
+		return p.data
 
 	# Inserting at the beginning of a Linked List
 	def insertAtBeginning(self, key): 
@@ -49,8 +65,8 @@ class LinkedListInsertion:
 			while h.data != nodeAfter:
 				h = h.next
 				if h is None:
-					print("The node can't be inserted");
-					return;
+					print("The node can't be inserted")
+					return
 
 			
 
@@ -75,39 +91,39 @@ class LinkedListInsertion:
 	# Utility function to print the linked list 
 	def printList(self): 
 		h = self.head 
-		while (h): 
-			print (h.data, end = " ") 
+		while h is not None: 
+			print (h.data, end = " -> ") 
 			h = h.next
-		print()
+		print("None")
 
 
 
 # Code execution starts here 
 if __name__=='__main__': 
 
-	myList = LinkedListInsertion() 
+	myList = LinkedListInsertion()
 
-	myList.insertionAtEnd(1)
-	print("Initial Linked List: ", end = " ")
-	myList.printList() 
-
-
-	myList.insertionAtEnd(6) 
-	print("After inserting at the end of Linked List: ", end = " ")
+	myList.insertionAtEnd(4)
+	myList.insertionAtEnd(5)
+	myList.insertionAtEnd(2)
+	myList.insertionAtEnd(7)
+	myList.insertionAtEnd(6)
+	myList.insertionAtEnd(9)
 	myList.printList()
+	ans = myList.returnLastNode(2)
+	print("Last 2nd Node:", ans)
+	# myList.insertAtBeginning(7); 
+	# print("After inserting at the beginning of Linked List: ", end = " ")
+	# myList.printList()
 
-	myList.insertAtBeginning(7); 
-	print("After inserting at the beginning of Linked List: ", end = " ")
-	myList.printList()
+	# myList.insertAtBeginning(8); 
+	# print("After inserting at the beginning of Linked List: ", end = " ")
+	# myList.printList()
 
-	myList.insertAtBeginning(8); 
-	print("After inserting at the beginning of Linked List: ", end = " ")
-	myList.printList()
-
-	myList.insertAtBeginning(9); 
-	print("After inserting at the beginning of Linked List: ", end = " ")
-	myList.printList()
+	# myList.insertionAtEnd(1)
+	# print("After inserting at the end of Linked List: ", end = " ")
+	# myList.printList() 
 	
-	myList.insertAfter(7, 8) 
-	print("After inserting after node 7 in Linked List: ", end = " ")
-	myList.printList()
+	# myList.insertAfter(7, 12) 
+	# print("After inserting after node %d in Linked List: " % (7), end = " ")
+	# myList.printList()
