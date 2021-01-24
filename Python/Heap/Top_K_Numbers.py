@@ -1,3 +1,14 @@
+# @author
+# Aakash Verma
+
+# www.aboutaakash.in
+# www.innoskrit.in
+# Instagram: https://www.instagram.com/aakashverma1102/
+# LinkedIn: https://www.linkedin.com/in/aakashverma1124/
+# Youtube: https://www.youtube.com/channel/UC7A5AUQ7sZTJ7A1r8J9hw9A
+
+# Problem Statement:Given an unsorted array of numbers, find the ‘K’ largest numbers in it. 
+
 from heapq import *
 
 def top_k_numbers(arr, k):
