@@ -65,7 +65,7 @@ def isBalanced(expression):
 			if(isMatching(stack.pop(), expression[i]) is not True):
 				return False
 
-		print(stack)
+		# print(stack)
 		# if everything is perfect till here and stack becomes empty, means the expression is balanced
 		# otherwise, if stack doesn't become empty, then return false.
 	if(len(stack) == 0):

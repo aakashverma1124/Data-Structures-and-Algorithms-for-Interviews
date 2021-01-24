@@ -86,12 +86,14 @@ if __name__ == '__main__':
 	s.push(40) # now top is 40
 	s.push(50) # now top is 50
 	s.push(60) # Stack Overflow
-	s.pop()
-	s.pop()
-	s.pop()
-	s.pop()
-	s.pop()
+	# s.pop()
+	# s.pop()
+	# s.pop()
+	# s.pop()
+	# print("Top element is: " , s.peek())
+	# s.pop()
+	# print("Top element is: " , s.peek())
 	# s.pop()
 	# temp = s.pop() # after performing pop, top will point to 20 again.
 	# print("Deleted element is: ", temp)
-	print("Top element is: " , s.peek())
+	
