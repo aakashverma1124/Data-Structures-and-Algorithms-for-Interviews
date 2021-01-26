@@ -54,7 +54,6 @@ class LinkedList:
 	def nthNodeFromEnd(self, nthNode):
 		prev = self.head
 		curr = self.head
-
 		if self.head is None:
 			print("The list doesn't exist.")
 			return

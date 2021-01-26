@@ -28,7 +28,7 @@ class StackLinkedList:
 
 	# defining node as None upon creation of the object.
 	def __init__(self):
-		self.root = None;
+		self.root = None
 
 	# if root doesn't point to anything, then stack is obviously empty and it will return true.
 	def isEmpty(self):
@@ -90,7 +90,7 @@ class StackLinkedList:
 	def peek(self):
 		topElement = -sys.maxsize-1
 		if(self.isEmpty()):
-			System.out.println("Stack Underflow")
+			print("Stack Underflow")
 		else:
 			topElement = self.root.data
 		return topElement

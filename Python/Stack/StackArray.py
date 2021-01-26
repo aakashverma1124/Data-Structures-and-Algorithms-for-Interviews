@@ -21,7 +21,7 @@
 class StackArray:
 
 	# We are assuming that the size of our stack is 1000, you may take any size
-	MAX = 1000
+	MAX = 5
 
 	stack = [] 	# stack
 	
@@ -83,6 +83,17 @@ if __name__ == '__main__':
 	s.push(10) # now top is 10
 	s.push(20) # now top is 20
 	s.push(30) # now top is 30
-	temp = s.pop() # after performing pop, top will point to 20 again.
-	print("Deleted element is: ", temp)
-	print("Top element is: " , s.peek())
+	s.push(40) # now top is 40
+	s.push(50) # now top is 50
+	s.push(60) # Stack Overflow
+	# s.pop()
+	# s.pop()
+	# s.pop()
+	# s.pop()
+	# print("Top element is: " , s.peek())
+	# s.pop()
+	# print("Top element is: " , s.peek())
+	# s.pop()
+	# temp = s.pop() # after performing pop, top will point to 20 again.
+	# print("Deleted element is: ", temp)
+	
