@@ -53,7 +53,7 @@ class StackArray:
 
 		# otherwise, increment top and add key to a[top], here top works as an index only. 
 		self.top += 1
-		self.stack.append(key)
+		self.stack.insert(self.top,key)
 		print("The element is pushed and top points to => ",self.stack[self.top])
 		return True
 
@@ -75,8 +75,8 @@ class StackArray:
 			print("There is no record in the stack.")
 			return -1
 
-		peekElement = self.stack[self.top];
-		return peekElement;
+		peekElement = self.stack[self.top]
+		return peekElement
 
 if __name__ == '__main__': 
 	s = StackArray()
@@ -86,6 +86,13 @@ if __name__ == '__main__':
 	s.push(40) # now top is 40
 	s.push(50) # now top is 50
 	s.push(60) # Stack Overflow
+	#print("Top element is: " , s.peek())
+	#s.pop()
+	#s.pop()
+	#print("Top element is: " , s.peek())
+	#print("Pushing 10 in stack")
+	#s.push(10)
+	#print("Top element is: " , s.peek())
 	# s.pop()
 	# s.pop()
 	# s.pop()
