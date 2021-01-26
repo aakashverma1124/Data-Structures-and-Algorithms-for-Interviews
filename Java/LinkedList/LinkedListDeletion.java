@@ -29,7 +29,7 @@ class Node {
 /* Creating a class for implementing the code for Deletion in a Linked List. */
 class LinkedListDeletion {
 
-	static Node head;
+	Node head;
 
 	LinkedListDeletion() {
 		head = null;
