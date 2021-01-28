@@ -7,9 +7,9 @@
 # LinkedIn: https://www.linkedin.com/in/aakashverma1124/
 # Youtube: https://www.youtube.com/channel/UC7A5AUQ7sZTJ7A1r8J9hw9A
 
-# Problem Statement: Given a string S, check if the letters can be rearranged so that two characters that are adjacent to each other are not the same.
-# If possible, output any possible result.  If not possible, return the empty string.
-# Problem Link: https://leetcode.com/problems/reorganize-string/
+# Problem Statement: Given a string and a number ‘K’, find if the string can be rearranged such that the same characters 
+# are at least ‘K’ distance apart from each other.
+# Problem Link: https://leetcode.com/problems/rearrange-string-k-distance-apart/
 
 
 from heapq import *
