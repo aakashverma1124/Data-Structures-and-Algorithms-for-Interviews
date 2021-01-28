@@ -13,8 +13,12 @@
 
 
 from heapq import *
+from collections import deque
 
-def rearrange_string(string):
+def rearrange_string_k_distnace_apart(string, k):
+
+	if k <= 1:
+		return string
 
 	hash_map = dict()
 	for char in string:
@@ -25,19 +29,19 @@ def rearrange_string(string):
 	for char, freq in hash_map.items():
 		heappush(max_heap, (-freq, char))
 
-	prev_characecter, prev_frequency = None, 0
-
+	queue = deque([])
 	resultString = []
 
 	while max_heap:
 		freq, char = heappop(max_heap)
-
-		if prev_characecter and -prev_frequency > 0:
-			heappush(max_heap, (prev_frequency, prev_characecter))
-
 		resultString.append(char)
-		prev_characecter = char
-		prev_frequency = freq + 1
+		queue.append((char, freq + 1))
+
+		if len(queue) == k:
+			character, frequency = queue.popleft()
+			if -frequency > 0:
+				heappush(max_heap, (frequency, character))
+
 
 	return ''.join(resultString)
 	if(len(resultString) == len(string)):
@@ -47,7 +51,7 @@ def rearrange_string(string):
 
 if __name__ == '__main__':
 	string1 = "Programming"
-	ans1 = rearrange_string(string1)
+	ans1 = rearrange_string_k_distnace_apart(string1, 3)
 	print(ans1)
 
 	
