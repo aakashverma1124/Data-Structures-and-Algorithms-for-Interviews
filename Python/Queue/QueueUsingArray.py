@@ -20,11 +20,13 @@
 
 # Run using: python3 QueueUsingArray.py
 
+import sys
+
 class QueueUsingArray:
     # We are assuming that the size of our queue is 10, you may take any size
     SIZE = 10
 
-    queue = []  # queue
+    queue = [-sys.maxsize - 1] * 10  # queue
 
     # As soon as the object of this class is created, front & rear is assigned as -1.
     def __init__(self):
@@ -52,7 +54,7 @@ class QueueUsingArray:
             if self.front == -1:
                 self.front = 0
             self.rear = (self.rear + 1) % self.SIZE
-            self.queue.append(element)
+            self.queue[self.rear] = element
             print("Enqueue Operation Done, rear is at ", element)
 
     def deQueue(self):
