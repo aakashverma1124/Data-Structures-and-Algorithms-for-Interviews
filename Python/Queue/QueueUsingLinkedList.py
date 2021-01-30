@@ -34,7 +34,6 @@ class QueueUsingLinkedList:
 
 	def enqueue(self, item) : 
 		new_node = Node(item)
-		new_node.data = item
 		
 		if self.rear is None : 
 			self.front = self.rear = new_node 
