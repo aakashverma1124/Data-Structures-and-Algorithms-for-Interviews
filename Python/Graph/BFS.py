@@ -26,11 +26,9 @@ def bfs(s, edges, vertices):
 
     # taking a visited array and marking every node as unvisited
     visited = [False] * (vertices + 1)
-    distance = [-1]  * (vertices + 1)
     queue = deque([]) 	# creating a queue
     queue.append(s) # appending source node into queue
     visited[s] = True # marking source node as visited
-    distance[s] = 0
     bfs_ans = [] # array to store the bfs
 
     while len(queue) != 0:
@@ -43,8 +41,6 @@ def bfs(s, edges, vertices):
             if visited[v] is not True:
                 queue.append(v)
                 visited[v] = True
-                distance[v] = distance[curr] + 6
-    print(distance[1:])
     return bfs_ans
 
 if __name__ == '__main__':
@@ -53,3 +49,7 @@ if __name__ == '__main__':
     vertices = 6
     ans = bfs(1, edges, vertices)
     print(ans)
+
+
+
+
