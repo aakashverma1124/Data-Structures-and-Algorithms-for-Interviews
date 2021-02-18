@@ -26,7 +26,7 @@ class Node {
 /* Creating a class for implementing the code for Detecting a Loop in a Linked List. */
 class LoopDetection {
 
-	static Node head;
+	Node head;
 
 	LoopDetection() {
 		head = null;

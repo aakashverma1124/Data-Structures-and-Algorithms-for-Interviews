@@ -27,7 +27,7 @@ class Node {
 /* Creating a class for implementing the code for Middle in a Linked List. */
 class MiddleOfLinkedList {
 
-	static Node head;
+	Node head;
 
 	MiddleOfLinkedList() {
 		head = null;

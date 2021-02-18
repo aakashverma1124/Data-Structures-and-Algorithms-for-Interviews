@@ -29,7 +29,7 @@ class Node {
 
 /* Creating a class for implementing the code for Insertion in a Linked List. */
 class LinkedListInsertion {
-	static Node head;
+	Node head;
 
 	LinkedListInsertion() {
 		head = null;

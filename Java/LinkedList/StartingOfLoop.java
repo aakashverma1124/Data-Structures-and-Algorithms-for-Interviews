@@ -26,7 +26,7 @@ class Node {
 /* Creating a class for implementing the code for Starting of a loop in a Linked List. */
 class StartingOfLoop {
 
-	static Node head;
+	Node head;
 
 	StartingOfLoop() {
 		head = null;
