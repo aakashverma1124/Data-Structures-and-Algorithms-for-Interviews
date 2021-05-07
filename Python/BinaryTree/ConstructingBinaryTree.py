@@ -11,7 +11,7 @@ class Node:
 
 
 # Defining class for the Binary Tree
-class BinaryTreeTraversal:
+class BinaryTree:
     
     # Assigning root as null initially. So as soon as the object will be created 
     # of this BinaryTreeTraversal class, root will be set as null.
@@ -20,7 +20,7 @@ class BinaryTreeTraversal:
 
 # main method
 if __name__ == '__main__':
-    tree = BinaryTreeTraversal()
+    tree = BinaryTree()
     tree.root = Node(1)
     tree.root.left = Node(2)
     tree.root.right = Node(3)
