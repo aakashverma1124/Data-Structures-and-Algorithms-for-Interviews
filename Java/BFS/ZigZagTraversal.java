@@ -21,7 +21,7 @@ class Node {
 }
 
 
-class LevelOrderTraversal {
+class ZigZagTraversal {
 
     static Node root;
     LevelOrderTraversal() {

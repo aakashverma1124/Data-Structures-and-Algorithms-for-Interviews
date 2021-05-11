@@ -13,7 +13,7 @@ class Node:
         self.data = data
         self.right = self.left = None
 
-class LevelOrderTraversal:
+class ZigZagTraversal:
     
     def __init__(self): 
         self.root = None
@@ -45,7 +45,7 @@ class LevelOrderTraversal:
         return bfs
     
 if __name__ == '__main__':
-    tree = LevelOrderTraversal()
+    tree = ZigZagTraversal()
     tree.root = Node(1)
     tree.root.left = Node(2)
     tree.root.right = Node(3)
