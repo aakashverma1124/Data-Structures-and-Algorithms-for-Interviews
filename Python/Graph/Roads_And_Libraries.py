@@ -17,15 +17,18 @@ def dfs(node, visited, graph):
             count += dfs(neighbour, visited, graph)
             
     return count
-# Complete the roadsAndLibraries function below.
-def roadsAndLibraries(n, c_lib, c_road, cities):
+
+def gridToAdjacencyList(cities, n):
     graph = dict()
-    # initializing the graph (converting cities into an adjacency list)
-    for i in range(1, n + 1):
+    for i in range(n):
         graph[i] = list()
     for city in cities:
         graph[city[0]].append(city[1])
         graph[city[1]].append(city[0])
+
+
+def roadsAndLibraries(n, c_lib, c_road, cities):
+    graph = gridToAdjacencyList(cities, n)
         
     visited = [False] * (n + 1)
     components = []   
@@ -35,7 +38,9 @@ def roadsAndLibraries(n, c_lib, c_road, cities):
             components.append(dfs(v, visited, graph))
         elif (len(graph[v]) == 0):
             components.append(1)
+
     ans = 0
     for i in range(len(components)):
         ans += min((components[i]-1) * c_road + c_lib, components[i] * c_lib)
     return ans
+    

@@ -18,14 +18,17 @@ def dfs(node, visited, graph):
             
     return count
 
-def journeyToMoon(n, astronauts):
+def gridToAdjacencyList(cities, n):
     graph = dict()
-    # initializing the graph (converting cities into an adjacency list)
     for i in range(n):
         graph[i] = list()
-    for astronaut in astronauts:
-        graph[astronaut[0]].append(astronaut[1])
-        graph[astronaut[1]].append(astronaut[0])
+    for city in cities:
+        graph[city[0]].append(city[1])
+        graph[city[1]].append(city[0])
+
+def journeyToMoon(n, astronauts):
+    
+    graph = gridToAdjacencyList(astronaut, n)
         
     visited = [False] * (n)
     components = []   
@@ -35,7 +38,14 @@ def journeyToMoon(n, astronauts):
             components.append(dfs(v, visited, graph))
         elif (len(graph[v]) == 0):
             components.append(1)
-    
+
+
+
+
+
+
+
+
     length = len(components)
     prefix_array = [0] * length
     prefix_array[-1] = components[-1]
