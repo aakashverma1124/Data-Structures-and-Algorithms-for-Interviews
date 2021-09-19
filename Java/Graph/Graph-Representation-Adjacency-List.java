@@ -30,10 +30,8 @@ class Graph {
     }
 
     public void addEdge(int source, int destination) {
-        if (source < vertices && destination < vertices) { 
-        	this.adjacencyList[source].add(destination);
-        	this.adjacencyList[destination].add(source); // for directed graph comment this line
-       	}
+    	this.adjacencyList[source].add(destination);
+    	this.adjacencyList[destination].add(source); // for directed graph comment this line
     }
 
     public void printGraph() {

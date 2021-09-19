@@ -3,8 +3,8 @@ import java.io.*;
 
 class AlienDictionary {
 
-	public static String findLanguageOrder(String words[]) {
-		if(words == null || words.length == 0) {
+    public static String alienOrder(String[] words) {
+        if(words == null || words.length == 0) {
 			return "";
 		}
 
@@ -22,12 +22,15 @@ class AlienDictionary {
 		for(int i = 0; i < words.length - 1; i++) {
 			String word1 = words[i];
 			String word2 = words[i + 1];
+            if(word2.length() < word1.length() && word1.startsWith(word2)) {
+                return "";
+            }
 			for(int j = 0; j < Math.min(word1.length(), word2.length()); j++) {
 				char parent = word1.charAt(j);
 				char child = word2.charAt(j);
 				if(parent != child) {
 					graph.get(parent).add(child);
-					inDegree.put(child, inDegree.get(child) + 1);
+                    inDegree.put(child, inDegree.get(child) + 1);
 					break;
 				}
 			}
@@ -58,11 +61,12 @@ class AlienDictionary {
 		}
 
 		return sortedOrder.toString();
-	}
+    }
+
 	public static void main(String[] args) {
 		// String words[] = {"ywx", "wz", "xww", "xz", "zyy", "zwz"};
 		String words[] = {"zy", "zx"};
-		String languageOrder = findLanguageOrder(words);
+		String languageOrder = alienOrder(words);
 		System.out.println(languageOrder);
 	}
 }
