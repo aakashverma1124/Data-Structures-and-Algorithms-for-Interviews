@@ -7,6 +7,7 @@ class UnionFind {
 
     public UnionFind(int size) {
         this.parent = new int[size];
+        this.rank = new int[size];
         for(int i = 0; i < size; i++) {
             this.parent[i] = i;
             this.rank[i] = 1;
