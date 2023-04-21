@@ -24,7 +24,7 @@ class Node {
 class ZigZagTraversal {
 
     static Node root;
-    LevelOrderTraversal() {
+    ZigZagTraversal() {
         root = null;
     }
 

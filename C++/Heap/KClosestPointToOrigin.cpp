@@ -14,17 +14,17 @@ class Point {
 public:
     int x;
     int y;
-    int distance;
-    Point(int x, int y, int distance) {
+    int d;
+    Point(int x, int y, int d) {
         this->x = x;
         this->y = y;
-        this->distance = distance;
+        this->d = d;
     }
 };
 
 struct comparator {
     bool operator() (Point &a, Point &b) {
-        return (b.distance > a.distance);
+        return (b.d > a.d);
     }
 };
 
@@ -34,26 +34,17 @@ public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
         priority_queue<Point, vector<Point>, comparator> maxHeap;
 
-        for(int i = 0; i < k; i++) {
-            int x = points[i][0];
-            int y = points[i][1];
-            int distance = x*x + y*y;
-            Point p = Point(x, y, distance);
-            maxHeap.push(p);
-        }
-
-        for(int i = k; i < points.size(); i++) {
-
-            int x = points[i][0];
-            int y = points[i][1];
-            int distance = x*x + y*y;
-            if(distance < maxHeap.top().distance) {
+        for(vector<int> point : points) {
+            int x = point[0];
+            int y = point[1];
+            int dist = (x * x) + (y * y);
+            maxHeap.push(Point(x, y, distance););
+            if(maxHeap.size() > k) {
                 maxHeap.pop();
-                maxHeap.push(Point(x, y, distance));
             }
         }
 
-        vector<vector<int>> ans(k,{0,0});
+        vector<vector<int>> ans(k,{0, 0});
         int i = 0;
         while(!maxHeap.empty()) {
             Point p = maxHeap.top();

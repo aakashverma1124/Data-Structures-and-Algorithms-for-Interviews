@@ -3,34 +3,28 @@ import java.util.*;
 class Point {
     int x;
     int y;
-    int distance;
-    public Point(int x, int y, int distance) {
+    int d;
+    public Point(int x, int y, int d) {
         this.x = x;
         this.y = y;
-        this.distance = distance;
+        this.d = d;
     }
 }
 
 class KClosestPointToOrigin {
     public int[][] kClosest(int[][] points, int k) {
-        PriorityQueue<Point> maxHeap = new PriorityQueue<>((p1, p2) -> p2.distance - p1.distance);
-        for(int i = 0; i < k; i++) {
-            int x = points[i][0];
-            int y = points[i][1];
-            int distance = x*x + y*y;
-            Point p = new Point(x, y, distance);
-            maxHeap.add(p);
-        }
-        
-        for(int i = k; i < points.length; i++) {
-            int x = points[i][0];
-            int y = points[i][1];
-            int distance = x*x + y*y;
-            if(distance < maxHeap.peek().distance) {
+        PriorityQueue<Point> maxHeap = new PriorityQueue<>((p1, p2) -> p2.d - p1.d);
+        for(int point[] : points) {
+            int x = point[0];
+            int y = point[1];
+            int dist = (x * x) + (y * y);
+            Point p = new Point(x, y, dist);
+            maxHeap.offer(point);
+            if(maxHeap.size() > k) {
                 maxHeap.poll();
-                maxHeap.add(new Point(x, y, distance));
             }
         }
+        
         int ans[][] = new int[k][2];
         int i = 0;
         while(!maxHeap.isEmpty()) {

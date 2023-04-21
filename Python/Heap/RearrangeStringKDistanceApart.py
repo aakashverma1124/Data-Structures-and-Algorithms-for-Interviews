@@ -43,15 +43,15 @@ def rearrange_string_k_distnace_apart(string, k):
 				heappush(max_heap, (frequency, character))
 
 
-	return ''.join(resultString)
+	resultString = ''.join(resultString)
 	if(len(resultString) == len(string)):
 		return resultString
 	else:
 		return ""
 
 if __name__ == '__main__':
-	string1 = "Programming"
-	ans1 = rearrange_string_k_distnace_apart(string1, 3)
+	string1 = "aaadbbcc"
+	ans1 = rearrange_string_k_distnace_apart(string1, 2)
 	print(ans1)
 
 	

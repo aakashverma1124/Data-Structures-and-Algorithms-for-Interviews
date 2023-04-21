@@ -19,7 +19,7 @@ class Solution {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
         
-        PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>((e1, e2) -> e2.getValue() - e1.getValue());
+        PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>((e1, e2) -> e2.getValue() - e1.getValue());
     
         maxHeap.addAll(map.entrySet());
         
